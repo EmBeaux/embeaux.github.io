@@ -2,7 +2,7 @@ import { Image } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 
 interface MantineStyles {
-    [key: string]: { [key: string]: any }
+    [key: string]: { [key: string]: string }
 }
 
 interface HoverImageProps {

@@ -2,21 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MantineProvider } from '@mantine/core';
-import AboutMe from './components/pages/about-me.tsx';
-import Home from './components/pages/home.tsx';
+import { routes } from './constants/routes.ts';
 import NavBar from './components/global/nav-bar.tsx';
 import Footer from './components/global/footer.tsx';
+import './index.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/about-me",
-    element: <AboutMe />,
-  },
-]);
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -29,13 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       withNormalizeCSS
       withGlobalStyles
     >
-      <div
-        style={{
-          margin: '5% 20%',
-          backgroundColor: "#303134",
-          padding: '2.5% 5%'
-        }}
-      >
+      <div className="body">
         <NavBar />
         <RouterProvider router={router} />
         <Footer />

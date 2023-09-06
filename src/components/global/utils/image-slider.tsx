@@ -9,17 +9,19 @@ interface ImageSliderProps {
 function ImageSlider(props: ImageSliderProps) {
 
     return (
-        <ImgComparisonSlider hover className="image-slider">
-            {props.images.map((image, index) => (
-                <Image
-                    slot={index === 0 ? 'first' : 'second'}
-                    key={index}
-                    src={image}
-                    alt={`Image ${index}`}
-                    radius="xl"
-                />
-            ))}
-        </ImgComparisonSlider>
+        <div className="image-slider">
+            <ImgComparisonSlider hover>
+                {props.images.map((image, index) => (
+                    <Image
+                        slot={index === 0 ? 'first' : 'second'}
+                        key={index}
+                        src={image}
+                        alt={`Image ${index}`}
+                        radius="xl"
+                    />
+                ))}
+            </ImgComparisonSlider>
+        </div>
     )
 }
 
