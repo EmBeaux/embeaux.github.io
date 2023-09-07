@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom';
 import AboutMe from '../components/pages/about-me.tsx';
-import Home from '../components/pages/home.tsx';
+import Home from '../components/pages/home/home.tsx';
 
 
 export const routes: RouteObject[] = [

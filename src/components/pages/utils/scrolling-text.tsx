@@ -6,38 +6,56 @@ interface ScrollingTextProps {
     prepend?: string;
 }
 
-function ScrollingText({ phrases, prepend = "" }: ScrollingTextProps) {
-    const [currentPhrase, setCurrentPhrase] = useState(prepend);
+function ScrollingText(props: ScrollingTextProps) {
+    const [currentPhrase, setCurrentPhrase] = useState("");
     const [phraseIndex, setPhraseIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
-    const [pause, setPause] = useState(false);
+    const [direction, setDirection] = useState("forward");
+    const [paused, setPaused] = useState(false);
+
+    
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (paused) return;
+            const targetPhrase = props.phrases[phraseIndex];
+            const baseText = props.prepend || "";
+
+            if (direction === "forward") {
+                setCurrentPhrase(baseText + targetPhrase.substring(0, charIndex + 1));
+                setCharIndex(charIndex + 1);
+                
+                if (charIndex + 1 === targetPhrase.length) {
+                    setDirection("backward");
+                }
+            } else {
+                setCurrentPhrase(baseText + targetPhrase.substring(0, charIndex - 1));
+                setCharIndex(charIndex - 1);
+                
+                if (charIndex - 1 === 0) {
+                    setDirection("forward");
+                    setPhraseIndex((phraseIndex + 1) % props.phrases.length);
+                }
+            }
+
+            if (props.phrases.includes(targetPhrase.substring(0, charIndex + 1))) {
+                setPaused(true);
+            }
+        }, 50);
+
+        return () => clearInterval(timer);
+    }, [phraseIndex, charIndex, direction, paused]);
 
     useEffect(() => {
-        let timer: ReturnType<typeof setInterval> | ReturnType<typeof setTimeout>;
-
-        if (pause) {
-            timer = setTimeout(() => setPause(false), 1000);
-        } else {
-            timer = setInterval(() => {
-                const targetPhrase = phrases[phraseIndex];
-                const progress = targetPhrase.substring(0, charIndex + 1);
-                setCurrentPhrase(prepend + progress);
-
-                if (charIndex === targetPhrase.length) {
-                    setPause(true);
-                    setCharIndex(charIndex - 1);
-                } else if (charIndex === 0 && pause === false) {
-                    setPhraseIndex((phraseIndex + 1) % phrases.length);
-                } else if (!pause) {
-                    setCharIndex(pause ? charIndex : charIndex + (targetPhrase.length === charIndex ? -1 : 1));
-                }
-            }, 50);
+        if (paused) {
+            setTimeout(() => {
+                setPaused(false);
+            }, 1000);
         }
+    }, [paused]);
 
-        return () => clearTimeout(timer);
-    }, [phraseIndex, charIndex, pause, prepend, phrases]);
-
-    return <Text fw={700} className="changing-info">{currentPhrase}</Text>;
+    return (
+        <Text fw={700} className="changing-info"> {currentPhrase} </Text>
+    )
 }
 
-export default ScrollingText;
+export default ScrollingText
