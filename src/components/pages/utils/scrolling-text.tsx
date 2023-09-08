@@ -54,7 +54,7 @@ function ScrollingText(props: ScrollingTextProps) {
     }, [paused]);
 
     return (
-        <Text fw={700} className="changing-info"> {currentPhrase} </Text>
+        <Text fw={700} className="changing-info" h="2em"> {currentPhrase} </Text>
     )
 }
 
