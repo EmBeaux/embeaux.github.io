@@ -4,16 +4,22 @@ import { ActionIcon, Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks';
 import ProjectCard from './project-card'
 import { IconArrowBigRightLine, IconArrowBigLeftLine } from '@tabler/icons-react'
-import Fiber from '../../../assets/fiber.avif'
+import Arrow from '../../../assets/Arrow.gif'
 import Telenursing from '../../../assets/telenursing.png'
 import Censinet from '../../../assets/censinet.webp'
 import Unity from '../../../assets/unity.svg'
 function Projects() {
     const [index, setIndex] = useState(0)
-        const matches = useMediaQuery('(max-width: 900px)');
+    const matches = useMediaQuery('(max-width: 900px)');
 
     return (
-        <div style={{ width: '100%', height: matches ? '60%' : '55%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+        <div style={{
+            width: '100%',
+            height: '35em',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+        }}>
             <Carousel
                 slides={[
                     {
@@ -24,7 +30,7 @@ function Projects() {
                                 company="Altman Solon"
                                 skills={["React", "Typescript", "Java", "Postgres"]}
                                 timeFrame={{ start: "Oct 2021", end: "Present" }}
-                                image={Fiber}
+                                image={Arrow}
                                 description="I modernized and transitioned Altman Solon's codebase from Angular to React, driving efficiency through architectural improvements, enhancing data visualization, and fostering collaborations for product flow optimization."
                             />
                         ),
@@ -87,7 +93,7 @@ function Projects() {
             <Flex
                 align="center"
                 justify="space-between"
-                mt="md"
+                style={{ width: '100%' }}
             >
                 <ActionIcon
                     onClick={() => {

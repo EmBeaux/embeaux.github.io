@@ -14,7 +14,7 @@ function NavMenu() {
             <Menu.Dropdown>
                 <Menu.Label>Navigation</Menu.Label>
                 {routes.map(route => (
-                    <Anchor underline={false} href={route.path}><Menu.Item>{route.id}</Menu.Item></Anchor>
+                    <Anchor key={route.id} underline={false} href={route.path}><Menu.Item>{route.id}</Menu.Item></Anchor>
                 ))}
             </Menu.Dropdown>
         </Menu>

@@ -32,7 +32,7 @@ function ProjectCard({timeFrame, name, company, skills = [], description = "With
                 </Group>
                 <Group position="left" spacing="xs" mb="md">
                     {skills.map((skill) => (
-                        <Badge size="xs" color="pink" variant="light">
+                        <Badge key={skill} size="xs" color="pink" variant="light">
                             {skill}
                         </Badge>
                     ))}

@@ -6,6 +6,7 @@ import { routes } from './constants/routes.ts';
 import NavBar from './components/global/nav-bar.tsx';
 import Footer from './components/global/footer.tsx';
 import './index.css';
+import 'semantic-ui-css/semantic.min.css';
 
 const router = createBrowserRouter(routes);
 
