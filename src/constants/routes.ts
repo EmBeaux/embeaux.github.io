@@ -10,7 +10,7 @@ export const routes: RouteObject[] = [
         id: 'Home',
     },
     {
-        path: '/about-me',
+        path: 'about-me',
         Component: AboutMe,
         id: 'About Me',
     }

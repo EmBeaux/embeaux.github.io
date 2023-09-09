@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { MantineProvider } from '@mantine/core';
 import { routes } from './constants/routes.ts';
 import NavBar from './components/global/nav-bar.tsx';
@@ -8,7 +8,7 @@ import Footer from './components/global/footer.tsx';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
