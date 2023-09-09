@@ -1,3 +1,4 @@
+import React from 'react';
 import { Modal } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import HoverImage from "./utils/hover-image"

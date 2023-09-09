@@ -1,3 +1,4 @@
+import React from 'react';
 import { Menu, Burger, Anchor } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { routes } from '../../constants/routes';

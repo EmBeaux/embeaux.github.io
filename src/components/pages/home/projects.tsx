@@ -1,3 +1,4 @@
+import React from 'react';
 import Carousel from '../utils/carousel'
 import ProjectCard from './project-card'
 import Arrow from '../../../assets/Arrow.gif'

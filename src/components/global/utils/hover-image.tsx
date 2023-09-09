@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import DisneyHeadshot from '../../assets/disney-headshot.jpg';

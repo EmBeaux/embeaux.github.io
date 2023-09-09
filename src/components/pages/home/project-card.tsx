@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Card, Image, Text, Space, Badge, Group } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks';
 interface ProjectCardProps {
