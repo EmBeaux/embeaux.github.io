@@ -14,9 +14,11 @@ function NavMenu() {
 
             <Menu.Dropdown>
                 <Menu.Label>Navigation</Menu.Label>
-                {routes.map(route => (
-                    <Anchor key={route.id} underline={false} href={route.path}><Menu.Item>{route.id}</Menu.Item></Anchor>
-                ))}
+                <span onClick={toggleBurger}>
+                    {routes.map(route => (
+                        <Anchor key={route.id} underline={false} href={route.path !== '/' ? '#' + route.path : route.path}><Menu.Item>{route.id}</Menu.Item></Anchor>
+                    ))}
+                </span>
             </Menu.Dropdown>
         </Menu>
     )
