@@ -3,9 +3,7 @@ import { Modal } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import HoverImage from "./utils/hover-image"
 import ContactInfo from './contact-info'
-import LinkedInLogo from '../../assets/LI-In-Bug.png';
-import GitHubLogo from '../../assets/gitHub-mark-white.png';
-import Address from '../../assets/address-book.svg';
+
 function SocialGroup() {
     const [modalOpened, { open: openModal, close: closeModal }] = useDisclosure(false);
     return (
@@ -19,12 +17,12 @@ function SocialGroup() {
                 <ContactInfo />
             </Modal>
             <HoverImage
-                src={Address}
+                src={window.location.origin + '/address-book.svg'}
                 width="2em"
                 onClick={openModal}
             />
             <HoverImage
-                src={LinkedInLogo}
+                src={window.location.origin + '/li-in-bug.png'}
                 width="2em"
                 onClick={() => window.open(
                     'https://www.linkedin.com/in/matthew-bowler-emb/',
@@ -32,7 +30,7 @@ function SocialGroup() {
                 )}
             />
             <HoverImage
-                src={GitHubLogo}
+                src={window.location.origin + '/github-mark-white.png'}
                 width="2em"
                 onClick={() => window.open(
                     'https://github.com/EmBeaux',

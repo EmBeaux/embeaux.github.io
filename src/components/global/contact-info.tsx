@@ -1,6 +1,5 @@
 import _React from 'react';
 import { Flex, Title, Text, Space, Anchor, Button } from "@mantine/core"
-import Resume from "../../assets/Matthew-Bowler-Resume.pdf"
 
 function ContactInfo() {
     return (
@@ -27,7 +26,7 @@ function ContactInfo() {
             <Space h='xl' />
             <Flex direction="column" justify="flex-start">
                 <Text c="dimmed">Resume</Text>
-                <Anchor href={Resume} download="Matthew Bowler Resume" target='_blank'>
+                <Anchor href={window.location.origin + '/matthew-bowler-resume.pdf'} download="Matthew Bowler Resume" target='_blank'>
                     <Button>Click Here To Download</Button>
                 </Anchor>
             </Flex>

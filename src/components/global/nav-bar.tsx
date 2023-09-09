@@ -1,8 +1,6 @@
 import _React from 'react';
 import { Flex, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import DisneyHeadshot from '../../assets/disney-headshot.jpg';
-import Headshot from '../../assets/headshot.jpg';
 import ImageSlider from './utils/image-slider';
 import HoverImage from './utils/hover-image';
 import NavMenu from './nav-menu';
@@ -18,7 +16,7 @@ function NavBar() {
                 onClose={closeModal}
                 styles={{ content: { background: 'none' } }}
             >
-                <ImageSlider images={[Headshot, DisneyHeadshot]} />
+                <ImageSlider images={[window.location.origin + '/headshot.jpg', window.location.origin + '/disney-headshot.jpg']} />
             </Modal>
             <Flex
                 direction='row'
@@ -27,8 +25,8 @@ function NavBar() {
                 style={{ height: '4em' }}
             >
                 <HoverImage
-                    src={Headshot}
-                    hoverSrc={DisneyHeadshot}
+                    src={window.location.origin + '/headshot.jpg'}
+                    hoverSrc={window.location.origin + '/disney-headshot.jpg'}
                     onClick={openModal}
                     width='4em'
                     radius="xl"
