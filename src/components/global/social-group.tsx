@@ -4,7 +4,7 @@ import HoverImage from "./utils/hover-image"
 import ContactInfo from './contact-info'
 import LinkedInLogo from '../../assets/LI-In-Bug.png';
 import GitHubLogo from '../../assets/gitHub-mark-white.png';
-import Mailbox from '../../assets/mailbox.svg';
+import Address from '../../assets/address-book.svg';
 function SocialGroup() {
     const [modalOpened, { open: openModal, close: closeModal }] = useDisclosure(false);
     return (
@@ -18,7 +18,7 @@ function SocialGroup() {
                 <ContactInfo />
             </Modal>
             <HoverImage
-                src={Mailbox}
+                src={Address}
                 width="2em"
                 onClick={openModal}
             />
