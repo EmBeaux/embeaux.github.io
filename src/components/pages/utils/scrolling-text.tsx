@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import _React, { useState, useEffect } from 'react'
 import { Text } from '@mantine/core'
 
 interface ScrollingTextProps {

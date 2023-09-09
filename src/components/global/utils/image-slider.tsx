@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { Image } from '@mantine/core'
 import './image-slider.css'

@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { Flex, Title, Text, Space, Anchor, Button } from "@mantine/core"
 import Resume from "../../assets/Matthew-Bowler-Resume.pdf"
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { TextInput, Button, Group, Flex, Textarea, Space, Title } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';

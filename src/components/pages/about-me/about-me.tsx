@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { Image, Flex, Title, Text, Space } from '@mantine/core'
 import Carousel from '../utils/carousel'
 import Celeste from '../../../assets/celeste.jpg'

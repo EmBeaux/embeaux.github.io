@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { Title, Flex, Space } from '@mantine/core'
 import ScrollingText from '../utils/scrolling-text'
 

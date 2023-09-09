@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { Flex } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import SocialGroup from './social-group';
