@@ -1,5 +1,5 @@
 import { RouteObject } from 'react-router-dom';
-import AboutMe from '../components/pages/about-me.tsx';
+import AboutMe from '../components/pages/about-me/about-me.tsx';
 import Home from '../components/pages/home/home.tsx';
 
 

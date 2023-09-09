@@ -1,12 +1,11 @@
 import { Flex, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import LinkedInLogo from '../../assets/LI-In-Bug.png';
-import GitHubLogo from '../../assets/gitHub-mark-white.png';
 import DisneyHeadshot from '../../assets/disney-headshot.jpg';
 import Headshot from '../../assets/headshot.jpg';
 import ImageSlider from './utils/image-slider';
 import HoverImage from './utils/hover-image';
 import NavMenu from './nav-menu';
+import SocialGroup from './social-group';
 function NavBar() {
     const [modalOpened, { open: openModal, close: closeModal }] = useDisclosure(false);
     return (
@@ -34,22 +33,7 @@ function NavBar() {
                     radius="xl"
                 />
                 <Flex direction='row' align="center" gap={9}>
-                    <HoverImage
-                        src={LinkedInLogo}
-                        width="2em"
-                        onClick={() => window.open(
-                            'https://www.linkedin.com/in/matthew-bowler-emb/',
-                            '_blank'
-                        )}
-                    />
-                    <HoverImage
-                        src={GitHubLogo}
-                        width="2em"
-                        onClick={() => window.open(
-                            'https://github.com/EmBeaux',
-                            '_blank'
-                        )}
-                    />
+                    <SocialGroup />
                     <NavMenu />
                 </Flex>
             </Flex>

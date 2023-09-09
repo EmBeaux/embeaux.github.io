@@ -1,25 +1,11 @@
-import { useState } from 'react'
-import Carousel from 'react-spring-3d-carousel'
-import { ActionIcon, Flex } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks';
+import Carousel from '../utils/carousel'
 import ProjectCard from './project-card'
-import { IconArrowBigRightLine, IconArrowBigLeftLine } from '@tabler/icons-react'
 import Arrow from '../../../assets/Arrow.gif'
 import Telenursing from '../../../assets/telenursing.png'
 import Censinet from '../../../assets/censinet.webp'
 import Unity from '../../../assets/unity.svg'
 function Projects() {
-    const [index, setIndex] = useState(0)
-    const matches = useMediaQuery('(max-width: 900px)');
-
     return (
-        <div style={{
-            width: '100%',
-            height: '35em',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
-        }}>
             <Carousel
                 slides={[
                     {
@@ -86,31 +72,7 @@ function Projects() {
                         ),
                     },
                 ]}
-                showNavigation={false}
-                goToSlide={index}
-                offsetRadius={matches ? 1 : 2}
             />
-            <Flex
-                align="center"
-                justify="space-between"
-                style={{ width: '100%' }}
-            >
-                <ActionIcon
-                    onClick={() => {
-                        setIndex(index - 1);
-                    }}
-                >
-                    <IconArrowBigLeftLine />
-                </ActionIcon>
-                <ActionIcon
-                    onClick={() => {
-                        setIndex(index + 1);
-                    }}
-                >
-                    <IconArrowBigRightLine />
-                </ActionIcon>
-            </Flex>
-        </div>
     )
 }
 

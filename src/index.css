@@ -1,7 +1,8 @@
 .body {
   background-color: #303134;
   border-radius: 5px;
-  height: 80em;
+  min-height: 85em;
+  height: fit-content;
 }
 
 @media (min-width: 900px) {
