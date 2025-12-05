@@ -19,7 +19,7 @@ function NavBar() {
                 <ImageSlider images={[window.location.origin + '/headshot.jpg', window.location.origin + '/disney-headshot.jpg']} />
             </Modal>
             <Flex direction='row' justify="space-between" align="center" style={{ height: '4em' }}>
-                <Group gap="md">
+                <Group spacing="md">
                     <HoverImage
                         src={window.location.origin + '/headshot.jpg'}
                         hoverSrc={window.location.origin + '/disney-headshot.jpg'}
@@ -28,7 +28,7 @@ function NavBar() {
                         radius="xl"
                     />
                     <div>
-                        <Group gap="xs">
+                        <Group spacing="xs">
                             <Title order={4} mb={-4}>Matthew Bowler</Title>
                             <Badge size="sm" variant="gradient">Savannah, GA</Badge>
                         </Group>

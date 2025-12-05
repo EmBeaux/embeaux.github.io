@@ -23,7 +23,7 @@ function AboutMe() {
                 </Text>
                 <Space h="md" />
                 <Grid gutter="lg">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={12} md={6}>
                         <Title order={4} mb="xs">What motivates me</Title>
                         <List
                             spacing="sm"
@@ -34,7 +34,7 @@ function AboutMe() {
                             <List.Item>Helping engineers visualize and trust the geospatial data behind critical decisions.</List.Item>
                         </List>
                     </Grid.Col>
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={12} md={6}>
                         <Title order={4} mb="xs">How I got here</Title>
                         <Text>
                             I started modding games at 12, taught myself JavaScript and Python, and took a direct path into the industry via Launch Academy in Boston. Since then I’ve led migrations from AngularJS/Vue to React, delivered vector-tile mapping experiences, and mentored onboarding cohorts.
@@ -43,13 +43,13 @@ function AboutMe() {
                 </Grid>
                 <Space h="md" />
                 <Grid gutter="lg">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={12} md={6}>
                         <Card padding="lg" radius="md" style={{ background: 'rgba(64,207,255,0.06)' }}>
                             <Badge variant="light" color="cyan" mb="xs" leftSection={<IconMapSearch size={14} />}>Geospatial</Badge>
                             <Text fw={600}>Vector tiles, lasso workflows, and high-volume map editing for telecom planning.</Text>
                         </Card>
                     </Grid.Col>
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={12} md={6}>
                         <Card padding="lg" radius="md" style={{ background: 'rgba(124,77,255,0.08)' }}>
                             <Badge variant="light" color="grape" mb="xs" leftSection={<IconRocket size={14} />}>Modernization</Badge>
                             <Text fw={600}>React + TypeScript systems that make legacy migrations safe, testable, and performant.</Text>

@@ -76,22 +76,22 @@ const toolbox = {
 function Home() {
     return (
         <Container size="xl" py="xl" className="page">
-            <Stack gap="xl">
+            <Stack spacing="xl">
                 <Card radius="xl" padding="xl" className="hero">
-                    <Group justify="space-between" align="flex-start">
-                        <Stack gap="sm" style={{ maxWidth: '900px' }}>
+                    <Group position="apart" align="flex-start">
+                        <Stack spacing="sm" style={{ maxWidth: '900px' }}>
                             <Badge size="lg" variant="gradient">Senior Full-Stack Engineer</Badge>
                             <Title order={1}>Matthew Bowler</Title>
                             <Text size="lg" c="dimmed">
                                 7+ years shipping high-performance web apps, modernizing legacy front-ends, and building complex geospatial tools with React, TypeScript, and Google Maps (vector tiles).
                             </Text>
-                            <Group gap="sm" mt="sm">
+                            <Group spacing="sm" mt="sm">
                                 <Button
                                     size="md"
                                     component="a"
                                     href={window.location.origin + '/matthew-bowler-resume.pdf'}
                                     target="_blank"
-                                    rightSection={<IconArrowUpRight size={18} />}
+                                    rightIcon={<IconArrowUpRight size={18} />}
                                 >
                                     Download Resume
                                 </Button>
@@ -100,12 +100,12 @@ function Home() {
                                     variant="outline"
                                     component="a"
                                     href="mailto:mattrbowler@gmail.com"
-                                    rightSection={<IconMail size={18} />}
+                                    rightIcon={<IconMail size={18} />}
                                 >
                                     Say hello
                                 </Button>
                             </Group>
-                            <Group gap="md" mt="md">
+                            <Group spacing="md" mt="md">
                                 {metrics.map((metric) => (
                                     <Card key={metric.label} radius="md" padding="md" className="metric-card">
                                         <Text fw={700} size="lg">{metric.label}</Text>
@@ -130,14 +130,14 @@ function Home() {
                 </Card>
 
                 <div>
-                    <Group justify="space-between" align="center" mb="md">
+                    <Group position="apart" align="center" mb="md">
                         <Title order={2}>Where I add the most value</Title>
                         <Badge variant="light" size="sm">Mantine-first UI</Badge>
                     </Group>
-                    <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
+                    <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
                         {focusAreas.map((area) => (
                             <Card key={area.title} radius="md" padding="lg" className="focus-card">
-                                <Group gap="sm">
+                                <Group spacing="sm">
                                     <ThemeIcon variant="light" color="cyan" size={38} radius="xl">
                                         <area.icon size={22} />
                                     </ThemeIcon>
@@ -152,10 +152,10 @@ function Home() {
                 <Card radius="lg" padding="xl" className="section-card">
                     <Title order={2} mb="sm">Recent Work</Title>
                     <Text c="dimmed" mb="lg">Enterprise-grade platforms, geospatial visualization, and modernization stories.</Text>
-                    <Stack gap="lg">
+                    <Stack spacing="lg">
                         {engagements.map((engagement) => (
                             <Card key={engagement.company} radius="md" padding="lg" className="engagement-card">
-                                <Group justify="space-between" align="flex-start" mb="xs">
+                                <Group position="apart" align="flex-start" mb="xs">
                                     <div>
                                         <Title order={4}>{engagement.company}</Title>
                                         <Text size="sm" c="dimmed">{engagement.role}</Text>
@@ -169,7 +169,7 @@ function Home() {
                                 >
                                     {engagement.highlights.map((item) => <List.Item key={item}>{item}</List.Item>)}
                                 </List>
-                                <Group gap="xs" mt="md">
+                                <Group spacing="xs" mt="md">
                                     {engagement.tags.map((tag) => (
                                         <Badge key={tag} size="sm" color="cyan" variant="light">{tag}</Badge>
                                     ))}
@@ -180,16 +180,16 @@ function Home() {
                 </Card>
 
                 <Card radius="lg" padding="xl" className="section-card">
-                    <Group justify="space-between" mb="md">
+                    <Group position="apart" mb="md">
                         <Title order={2}>Toolbox</Title>
                         <Badge variant="gradient" size="sm">React • TypeScript • Geospatial</Badge>
                     </Group>
-                    <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
+                    <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
                         {Object.entries(toolbox).map(([category, skills]) => (
                             <Card key={category} radius="md" padding="lg" className="tool-card">
                                 <Title order={4}>{category}</Title>
                                 <Divider my="sm" />
-                                <Group gap="xs">
+                                <Group spacing="xs">
                                     {skills.map((skill) => (
                                         <Badge key={skill} variant="light" color="gray">{skill}</Badge>
                                     ))}
@@ -200,20 +200,20 @@ function Home() {
                 </Card>
 
                 <Card radius="lg" padding="xl" className="section-card">
-                    <Group justify="space-between" align="flex-start">
+                    <Group position="apart" align="flex-start">
                         <div>
                             <Title order={2}>Let’s build something</Title>
                             <Text c="dimmed" mt="xs">
                                 Remote-first from Savannah, GA. I partner with product, data, and engineering teams to ship high-confidence features and healthier codebases.
                             </Text>
-                            <Group gap="sm" mt="md">
-                                <Button component="a" href="mailto:mattrbowler@gmail.com" leftSection={<IconMail size={18} />}>Email Matthew</Button>
+                            <Group spacing="sm" mt="md">
+                                <Button component="a" href="mailto:mattrbowler@gmail.com" leftIcon={<IconMail size={18} />}>Email Matthew</Button>
                                 <Button
                                     variant="subtle"
                                     component="a"
                                     href="https://www.linkedin.com/in/matthew-bowler-emb/"
                                     target="_blank"
-                                    rightSection={<IconBrandLinkedin size={18} />}
+                                    rightIcon={<IconBrandLinkedin size={18} />}
                                 >
                                     LinkedIn
                                 </Button>
@@ -222,7 +222,7 @@ function Home() {
                                     component="a"
                                     href="https://github.com/EmBeaux"
                                     target="_blank"
-                                    rightSection={<IconBrandGithub size={18} />}
+                                    rightIcon={<IconBrandGithub size={18} />}
                                 >
                                     GitHub
                                 </Button>
