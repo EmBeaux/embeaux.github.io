@@ -14,7 +14,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <MantineProvider
       theme={{
-        fontFamily: 'sans-serif',
+        fontFamily: 'Space Grotesk, "Segoe UI", sans-serif',
+        headings: { fontWeight: 700 },
+        primaryColor: 'cyan',
+        defaultGradient: { from: '#40cfff', to: '#7c4dff', deg: 135 },
         colorScheme: 'dark',
       }}
       withCSSVariables

@@ -1,5 +1,5 @@
 import _React from 'react';
-import { TextInput, Button, Group, Flex, Textarea, Space, Title } from '@mantine/core';
+import { TextInput, Button, Group, Flex, Textarea, Space, Title, Text, Card } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import emailjs from 'emailjs-com';
@@ -42,15 +42,18 @@ function ContactMeForm() {
         form.reset()
     };
     return (
-        <Flex direction="column" style={{ marginTop: '2em', width: '100%' }}>
-            <Title order={2} style={{ width: '100%' }}>Contact Me</Title>
+        <Card radius="md" padding="lg" style={{ marginTop: '1em', background: 'rgba(255,255,255,0.02)' }}>
+            <Flex direction="column" style={{ width: '100%' }}>
+                <Title order={3} style={{ width: '100%' }}>Send a note</Title>
+                <Text c="dimmed" size="sm" mb="md">Quickest reply via email, but feel free to drop a line here.</Text>
+            </Flex>
             <form id="contact-form" style={{ width: '100%', textAlign: 'left' }} onSubmit={form.onSubmit(() => handleOnSubmit())}>
                 <TextInput
                     withAsterisk
                     label="Email"
                     name="reply_to"
-                    placeholder="your@email.com"
-                    styles={{ root: { width: matches ? '100%' : '20%' } }}
+                    placeholder="you@email.com"
+                    styles={{ root: { width: matches ? '100%' : '30%' } }}
                     {...form.getInputProps('reply_to')}
                 />
                 <Space h="md" />
@@ -59,7 +62,7 @@ function ContactMeForm() {
                     label="Name"
                     placeholder="Jane Doe"
                     name="from_name"
-                    styles={{ root: { width: matches ? '100%' : '20%' } }}
+                    styles={{ root: { width: matches ? '100%' : '30%' } }}
                     {...form.getInputProps('from_name')}
                 />
                 <Space h="md" />
@@ -76,7 +79,7 @@ function ContactMeForm() {
                     <Button type="submit">Submit</Button>
                 </Group>
             </form>
-        </Flex>
+        </Card>
     )
 }
 
