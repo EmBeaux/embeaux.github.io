@@ -1,7 +1,7 @@
 import _React from 'react';
-import { Modal } from '@mantine/core'
+import { ActionIcon, Group, Modal, Tooltip } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import HoverImage from "./utils/hover-image"
+import { IconAddressBook, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 import ContactInfo from './contact-info'
 
 function SocialGroup() {
@@ -16,27 +16,37 @@ function SocialGroup() {
             >
                 <ContactInfo />
             </Modal>
-            <HoverImage
-                src={window.location.origin + '/address-book.svg'}
-                width="2em"
-                onClick={openModal}
-            />
-            <HoverImage
-                src={window.location.origin + '/li-in-bug.png'}
-                width="2em"
-                onClick={() => window.open(
-                    'https://www.linkedin.com/in/matthew-bowler-emb/',
-                    '_blank'
-                )}
-            />
-            <HoverImage
-                src={window.location.origin + '/github-mark-white.png'}
-                width="2em"
-                onClick={() => window.open(
-                    'https://github.com/EmBeaux',
-                    '_blank'
-                )}
-            />
+            <Group spacing="xs">
+                <Tooltip label="Contact">
+                    <ActionIcon variant="subtle" color="cyan" onClick={openModal}>
+                        <IconAddressBook size={18} />
+                    </ActionIcon>
+                </Tooltip>
+                <Tooltip label="LinkedIn">
+                    <ActionIcon
+                        variant="subtle"
+                        color="cyan"
+                        component="a"
+                        href="https://www.linkedin.com/in/matthew-bowler-emb/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <IconBrandLinkedin size={18} />
+                    </ActionIcon>
+                </Tooltip>
+                <Tooltip label="GitHub">
+                    <ActionIcon
+                        variant="subtle"
+                        color="cyan"
+                        component="a"
+                        href="https://github.com/EmBeaux"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <IconBrandGithub size={18} />
+                    </ActionIcon>
+                </Tooltip>
+            </Group>
         </>
     )
 }

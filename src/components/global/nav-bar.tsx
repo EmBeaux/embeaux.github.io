@@ -1,12 +1,16 @@
 import _React from 'react';
-import { Flex, Modal, Title, Text, Group, Badge, Button } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { Flex, Modal, Title, Text, Group, Badge, Button, Anchor } from '@mantine/core';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import ImageSlider from './utils/image-slider';
 import HoverImage from './utils/hover-image';
 import NavMenu from './nav-menu';
 import SocialGroup from './social-group';
+import { routes } from '../../constants/routes';
+
 function NavBar() {
     const [modalOpened, { open: openModal, close: closeModal }] = useDisclosure(false);
+    const isMobile = useMediaQuery('(max-width: 768px)');
+
     return (
         <>
             <Modal
@@ -18,7 +22,13 @@ function NavBar() {
             >
                 <ImageSlider images={[window.location.origin + '/headshot.jpg', window.location.origin + '/disney-headshot.jpg']} />
             </Modal>
-            <Flex direction='row' justify="space-between" align="center" style={{ height: '4em' }}>
+            <Flex
+                direction={isMobile ? 'column' : 'row'}
+                justify="space-between"
+                align={isMobile ? 'flex-start' : 'center'}
+                wrap="wrap"
+                style={{ minHeight: '4em', width: '100%', gap: isMobile ? '0.75rem' : '1rem' }}
+            >
                 <Group spacing="md">
                     <HoverImage
                         src={window.location.origin + '/headshot.jpg'}
@@ -32,13 +42,28 @@ function NavBar() {
                             <Title order={4} mb={-4}>Matthew Bowler</Title>
                             <Badge size="sm" variant="gradient">Savannah, GA</Badge>
                         </Group>
-                        <Text size="sm" c="dimmed">Senior Full-Stack Engineer — React, TypeScript, Geospatial</Text>
+                        <Text size="sm" c="dimmed">Senior Full-Stack Engineer - React, TypeScript, Geospatial</Text>
                     </div>
                 </Group>
-                <Flex direction='row' align="center" gap={12}>
+                <Flex
+                    align="center"
+                    gap={12}
+                    wrap="wrap"
+                    style={{ width: isMobile ? '100%' : 'auto', justifyContent: isMobile ? 'space-between' : 'flex-end' }}
+                >
+                    {!isMobile && (
+                        <Group spacing="md">
+                            {routes.map(route => (
+                                <Anchor key={route.id} underline={false} href={route.path !== '/' ? '#' + route.path : route.path} c="dimmed" fw={600}>
+                                    {route.id}
+                                </Anchor>
+                            ))}
+                        </Group>
+                    )}
+                    {isMobile && <NavMenu />}
                     <Button
                         variant="light"
-                        size="xs"
+                        size="sm"
                         component="a"
                         href={window.location.origin + '/matthew-bowler-resume.pdf'}
                         target="_blank"
@@ -47,7 +72,6 @@ function NavBar() {
                         Resume
                     </Button>
                     <SocialGroup />
-                    <NavMenu />
                 </Flex>
             </Flex>
         </>

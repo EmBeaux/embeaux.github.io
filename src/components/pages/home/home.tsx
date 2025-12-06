@@ -1,13 +1,15 @@
 import _React from 'react';
-import { Anchor, Badge, Button, Card, Container, Divider, Group, List, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { IconMapSearch, IconRefresh, IconRocket, IconArrowUpRight, IconDeviceAnalytics, IconMail, IconBrandGithub, IconBrandLinkedin, IconCheck } from '@tabler/icons-react';
+import { Anchor, Badge, Button, Card, Container, Divider, Group, List, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { IconMapSearch, IconRefresh, IconRocket, IconArrowUpRight, IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 import ContactMeForm from './contact-me-form.tsx';
 import './home.css';
 
+const hyphenBullet = <Text component="span" fw={700}>-</Text>;
+
 const metrics = [
     { label: '7+ years', detail: 'Building enterprise-grade web applications.' },
+    { label: 'Legacy -> Modern', detail: 'AngularJS and Vue migrations to React/TypeScript.' },
     { label: '60%+ faster', detail: 'Reduced UI latency by batching geospatial workflows.' },
-    { label: 'Legacy → Modern', detail: 'AngularJS and Vue migrations to React/TypeScript.' },
 ];
 
 const focusAreas = [
@@ -32,10 +34,10 @@ const engagements = [
     {
         company: 'Altman Solon',
         role: 'Product Consultant / Senior Software Engineer',
-        timeframe: 'Oct 2021 – Present',
-        summary: 'Leading an AngularJS → React migration and architecting telecom network visualization + editing for a flagship planning platform.',
+        timeframe: 'Oct 2021 - Present',
+        summary: 'Leading an AngularJS -> React migration and architecting telecom network visualization + editing for a flagship planning platform.',
         highlights: [
-            'Converted sequential “Lasso” calls into bulk operations, cutting UI latency by 60%+.',
+            'Converted sequential "Lasso" calls into bulk operations, cutting UI latency by 60%+.',
             'Redesigned fault-tree data structures to handle very large JSON payloads without jank.',
             'Enabled engineers to visualize and refine planning outputs like Flowerpot and Microduct designs.',
         ],
@@ -44,7 +46,7 @@ const engagements = [
     {
         company: 'Human Care Systems',
         role: 'Software Engineer / Onboarding Lead',
-        timeframe: 'Nov 2019 – Oct 2021',
+        timeframe: 'Nov 2019 - Oct 2021',
         summary: 'Co-led a Vue/Vuex rewrite and shipped automation for patient communications across SMS, print, and digital.',
         highlights: [
             'Built automated communication triggers, including SMS and physical mail integrations.',
@@ -56,7 +58,7 @@ const engagements = [
     {
         company: 'Censinet',
         role: 'Software Engineer',
-        timeframe: 'Jan 2019 – Nov 2019',
+        timeframe: 'Jan 2019 - Nov 2019',
         summary: 'Helped build a third-party risk management SaaS with React/TypeScript and Ruby on Rails.',
         highlights: [
             'Enhanced automated scoring algorithms and vendor questionnaire flows.',
@@ -80,7 +82,6 @@ function Home() {
                 <Card radius="xl" padding="xl" className="hero">
                     <Group position="apart" align="flex-start">
                         <Stack spacing="sm" style={{ maxWidth: '900px' }}>
-                            <Badge size="lg" variant="gradient">Senior Full-Stack Engineer</Badge>
                             <Title order={1}>Matthew Bowler</Title>
                             <Text size="lg" c="dimmed">
                                 7+ years shipping high-performance web apps, modernizing legacy front-ends, and building complex geospatial tools with React, TypeScript, and Google Maps (vector tiles).
@@ -115,11 +116,11 @@ function Home() {
                             </Group>
                         </Stack>
                         <Card radius="md" padding="md" className="callout-card">
-                            <Text fw={600} size="sm" c="cyan">What I’m focused on</Text>
+                            <Text fw={600} size="sm" c="cyan">What I'm focused on</Text>
                             <List
                                 mt="xs"
                                 spacing="xs"
-                                icon={<ThemeIcon variant="light" color="cyan" size={22} radius="xl"><IconCheck size={14} /></ThemeIcon>}
+                                icon={hyphenBullet}
                             >
                                 <List.Item>Geospatial editing performance for telecom planning teams.</List.Item>
                                 <List.Item>React architectures that de-risk migrations and lower tech debt.</List.Item>
@@ -138,9 +139,7 @@ function Home() {
                         {focusAreas.map((area) => (
                             <Card key={area.title} radius="md" padding="lg" className="focus-card">
                                 <Group spacing="sm">
-                                    <ThemeIcon variant="light" color="cyan" size={38} radius="xl">
-                                        <area.icon size={22} />
-                                    </ThemeIcon>
+                                    <area.icon size={22} />
                                     <Title order={4}>{area.title}</Title>
                                 </Group>
                                 <Text mt="sm" c="dimmed">{area.description}</Text>
@@ -165,7 +164,7 @@ function Home() {
                                 <Text mb="sm">{engagement.summary}</Text>
                                 <List
                                     spacing={6}
-                                    icon={<ThemeIcon color="cyan" variant="light" size={22} radius="xl"><IconDeviceAnalytics size={14} /></ThemeIcon>}
+                                    icon={hyphenBullet}
                                 >
                                     {engagement.highlights.map((item) => <List.Item key={item}>{item}</List.Item>)}
                                 </List>
@@ -182,7 +181,7 @@ function Home() {
                 <Card radius="lg" padding="xl" className="section-card">
                     <Group position="apart" mb="md">
                         <Title order={2}>Toolbox</Title>
-                        <Badge variant="gradient" size="sm">React • TypeScript • Geospatial</Badge>
+                        <Badge variant="gradient" size="sm">React > TypeScript > Geospatial</Badge>
                     </Group>
                     <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
                         {Object.entries(toolbox).map(([category, skills]) => (
@@ -202,7 +201,7 @@ function Home() {
                 <Card radius="lg" padding="xl" className="section-card">
                     <Group position="apart" align="flex-start">
                         <div>
-                            <Title order={2}>Let’s build something</Title>
+                            <Title order={2}>Let's build something</Title>
                             <Text c="dimmed" mt="xs">
                                 Remote-first from Savannah, GA. I partner with product, data, and engineering teams to ship high-confidence features and healthier codebases.
                             </Text>
@@ -230,11 +229,11 @@ function Home() {
                         </div>
                         <Card radius="md" padding="md" className="contact-card">
                             <Title order={5} c="cyan">Contact details</Title>
-                            <List spacing="xs" mt="xs" size="sm" c="dimmed">
-                                <List.Item icon={<ThemeIcon variant="light" color="cyan" size={22} radius="xl"><IconMail size={14} /></ThemeIcon>}>mattrbowler@gmail.com</List.Item>
-                                <List.Item icon={<ThemeIcon variant="light" color="cyan" size={22} radius="xl"><IconDeviceAnalytics size={14} /></ThemeIcon>}>830-388-6184</List.Item>
-                                <List.Item icon={<ThemeIcon variant="light" color="cyan" size={22} radius="xl"><IconMapSearch size={14} /></ThemeIcon>}>Savannah, Georgia (remote)</List.Item>
-                                <List.Item icon={<ThemeIcon variant="light" color="cyan" size={22} radius="xl"><IconArrowUpRight size={14} /></ThemeIcon>}>
+                            <List spacing="xs" mt="xs" size="sm" c="dimmed" icon={hyphenBullet}>
+                                <List.Item>mattrbowler@gmail.com</List.Item>
+                                <List.Item>830-388-6184</List.Item>
+                                <List.Item>Savannah, Georgia (remote)</List.Item>
+                                <List.Item>
                                     <Anchor href={window.location.origin + '/matthew-bowler-resume.pdf'} target="_blank" rel="noreferrer">Resume (PDF)</Anchor>
                                 </List.Item>
                             </List>
