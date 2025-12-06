@@ -181,7 +181,7 @@ function Home() {
                 <Card radius="lg" padding="xl" className="section-card">
                     <Group position="apart" mb="md">
                         <Title order={2}>Toolbox</Title>
-                        <Badge variant="gradient" size="sm">React > TypeScript > Geospatial</Badge>
+                        <Badge variant="gradient" size="sm">React - TypeScript - Geospatial</Badge>
                     </Group>
                     <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
                         {Object.entries(toolbox).map(([category, skills]) => (
