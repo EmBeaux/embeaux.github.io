@@ -1,15 +1,27 @@
 import _React from 'react';
-import { Flex } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Text } from '@mantine/core';
 import SocialGroup from './social-group';
 
 function Footer() {
-    const matches = useMediaQuery('(max-width: 900px)');
     return (
-        <Flex direction="row" gap={9} justify="flex-end" align="center" style={{ width: '100%', marginTop: matches ? '4em' : '5em' }}>
+        <footer
+            style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: 12,
+                marginTop: 64,
+                paddingTop: 24,
+                borderTop: '1px solid var(--border)',
+                flexWrap: 'wrap',
+            }}
+        >
+            <Text size="xs" c="dimmed">
+                © {new Date().getFullYear()} Matthew Bowler · Savannah, GA
+            </Text>
             <SocialGroup />
-        </Flex>
-    )
+        </footer>
+    );
 }
 
-export default Footer
+export default Footer;

@@ -1,42 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-1: #0b1021;
-  --bg-2: #0f162b;
-  --glow: radial-gradient(circle at 10% 20%, rgba(64, 207, 255, 0.15), transparent 35%),
-    radial-gradient(circle at 90% 10%, rgba(111, 66, 193, 0.18), transparent 30%),
-    radial-gradient(circle at 40% 90%, rgba(0, 201, 167, 0.18), transparent 28%);
+    --bg: #0d0f12;
+    --surface: #14171c;
+    --surface-2: #1a1e24;
+    --border: #2a2f37;
+    --border-strong: #3a414c;
+    --text: #e6e8eb;
+    --text-dim: #9aa0a8;
+    --accent: #4f9eff;
+    --radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
 }
 
 body {
-  margin: 0;
-  background: var(--bg-1);
-  color: #e8ecf5;
-  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
-}
-
-.body {
-  min-height: 100vh;
-  padding: 0;
-  background: linear-gradient(145deg, rgba(11, 16, 33, 0.95), rgba(15, 22, 43, 0.95)), var(--bg-2);
+    min-height: 100vh;
 }
 
 #root {
-  background: var(--glow);
+    min-height: 100vh;
 }
 
-@media (min-width: 900px) {
-  .body {
-    margin: 3% 10%;
-    padding: 3% 4%;
-    border-radius: 24px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
-  }
+.body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
 }
 
-@media (max-width: 900px) {
-  .body {
-    margin: 3% 4%;
-    padding: 5% 4%;
-  }
+@media (max-width: 768px) {
+    .body {
+        padding: 20px 16px 48px;
+    }
+}
+
+a {
+    color: var(--accent);
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
 }

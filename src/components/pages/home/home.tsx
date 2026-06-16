@@ -1,250 +1,280 @@
 import _React from 'react';
-import { Anchor, Badge, Button, Card, Container, Divider, Group, List, SimpleGrid, Stack, Text, Title } from '@mantine/core';
-import { IconMapSearch, IconRefresh, IconRocket, IconArrowUpRight, IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
+import { Button } from '@mantine/core';
+import {
+    IconBrain,
+    IconMapSearch,
+    IconRefresh,
+    IconArrowUpRight,
+    IconMail,
+    IconBrandGithub,
+    IconBrandLinkedin,
+    IconDownload,
+} from '@tabler/icons-react';
 import ContactMeForm from './contact-me-form.tsx';
 import './home.css';
 
-const hyphenBullet = <Text component="span" fw={700}>-</Text>;
-
 const metrics = [
     { label: '7+ years', detail: 'Building enterprise-grade web applications.' },
-    { label: 'Legacy -> Modern', detail: 'AngularJS and Vue migrations to React/TypeScript.' },
-    { label: '60%+ faster', detail: 'Reduced UI latency by batching geospatial workflows.' },
+    { label: 'AI Engineering', detail: 'LLMs, RAG, vector search, multi-agent workflows.' },
+    { label: 'Legacy → Modern', detail: 'AngularJS and Vue migrations to React/TypeScript.' },
 ];
 
 const focusAreas = [
     {
-        title: 'Geospatial Systems & Vector Tiles',
-        description: 'Advanced Google Maps API work: lasso selection, bulk edits, telecom network overlays, and vector-tile rendering tuned for massive datasets.',
+        title: 'AI Engineering',
+        description: 'LLM integration, retrieval-augmented generation, vector databases, passage embeddings, and conversational UX for production developer tooling.',
+        icon: IconBrain,
+    },
+    {
+        title: 'Geospatial Systems',
+        description: 'Google Maps vector-tile rendering, lazy loading, and debounced refresh strategies tuned to render thousands of network nodes smoothly.',
         icon: IconMapSearch,
     },
     {
         title: 'Front-End Modernization',
-        description: 'Architecting React/TypeScript front-ends, lifting legacy AngularJS/Vue to component-driven systems with stronger state management and predictable performance.',
+        description: 'In-place migrations from AngularJS/jQuery and Vue to React + TypeScript without disruptive rewrites: bridges, incremental adoption, and Mantine v7.',
         icon: IconRefresh,
-    },
-    {
-        title: 'Product & Team Leadership',
-        description: 'Bridging engineering and product, running discovery with stakeholders, mentoring onboarding cohorts, and translating complex data into actionable UX.',
-        icon: IconRocket,
     },
 ];
 
 const engagements = [
     {
         company: 'Altman Solon',
-        role: 'Product Consultant / Senior Software Engineer',
-        timeframe: 'Oct 2021 - Present',
-        summary: 'Leading an AngularJS -> React migration and architecting telecom network visualization + editing for a flagship planning platform.',
+        role: 'Senior Consultant, AI',
+        timeframe: 'Dec 2025 - Present',
+        summary: 'Building the "Software Factory," an internal platform that lets non-technical consultants stand up production-grade full-stack telecom apps from a plain-English prompt.',
         highlights: [
-            'Converted sequential "Lasso" calls into bulk operations, cutting UI latency by 60%+.',
-            'Redesigned fault-tree data structures to handle very large JSON payloads without jank.',
-            'Enabled engineers to visualize and refine planning outputs like Flowerpot and Microduct designs.',
+            'Scaffolds containerized React + Vite + Mantine / FastAPI + SQLModel apps with Docker, Postgres, S3/MinIO, optional Tauri builds, and Databricks integration from a single command.',
+            'Authored ~40 engineering-standards guides covering contract-first API design, persistence, runtime hardening, and telecom domain modeling.',
+            'Encoded the standards into a Claude Code multi-agent team (planner, engineers, integration verifier, browser tester, reviewer) running disciplined plan/implement/review sprints.',
         ],
-        tags: ['React', 'TypeScript', 'Google Maps API', 'Vector tiles', 'Java', 'PostgreSQL'],
+        tags: ['LLMs', 'RAG', 'Vector Search', 'FastAPI', 'React', 'Multi-Agent'],
+    },
+    {
+        company: 'Altman Solon',
+        role: 'Product Consultant, Arrow',
+        timeframe: 'Oct 2021 - Dec 2025',
+        summary: 'Led a multi-year, in-place migration of Arrow, a fiber-network planning and design platform, from a legacy AngularJS/jQuery foundation to a modern React stack.',
+        highlights: [
+            'Built a react2angular bridge to keep both frameworks in sync, incrementally retiring jQuery and driving Mantine adoption through the v7 upgrade.',
+            'Overhauled the Google Maps vector-tile rendering system with soft re-renders, lazy loading, and debounced tile refresh to render thousands of nodes smoothly.',
+            'Owned the plan editor: re-architected the editing model from service-side to front-end transactions, delivering vertex/marker editing, fault-tree risk logic, and flowerpot clustering.',
+            'Rebuilt the library and resource editors (location, equipment, conduit/fiber, service-area) plus the permissions/ACL system and end-to-end Projects feature.',
+        ],
+        tags: ['React', 'TypeScript', 'Mantine', 'Google Maps API', 'PostgreSQL'],
     },
     {
         company: 'Human Care Systems',
-        role: 'Software Engineer / Onboarding Lead',
+        role: 'Senior Software Engineer & Onboarding Lead',
         timeframe: 'Nov 2019 - Oct 2021',
-        summary: 'Co-led a Vue/Vuex rewrite and shipped automation for patient communications across SMS, print, and digital.',
+        summary: 'Co-led a comprehensive front-end rewrite using Vue.js and Vuex, establishing modular design patterns that improved code readability and scalability.',
         highlights: [
-            'Built automated communication triggers, including SMS and physical mail integrations.',
-            'Reduced new-hire ramp-up time by 30% as onboarding team lead.',
-            'Defined reusable UI patterns to speed feature delivery across squads.',
+            'Engineered automated communication features including in-browser SMS and physical mail triggers.',
+            'Reduced new-hire ramp-up time by 30% as Onboarding Team Lead, designing technical assessments and training curricula.',
+            'Maintained backend microservices using Node.js, MoleculerJS, and MongoDB for patient management data.',
         ],
-        tags: ['Vue', 'Vuex', 'TypeScript', 'Node.js', 'Next.js', 'MongoDB'],
+        tags: ['Vue', 'Vuex', 'Node.js', 'MoleculerJS', 'MongoDB'],
     },
     {
         company: 'Censinet',
-        role: 'Software Engineer',
+        role: 'Full Stack Developer',
         timeframe: 'Jan 2019 - Nov 2019',
-        summary: 'Helped build a third-party risk management SaaS with React/TypeScript and Ruby on Rails.',
+        summary: 'Built a SaaS third-party risk management platform using React, TypeScript, and Ruby on Rails, serving major healthcare providers.',
         highlights: [
-            'Enhanced automated scoring algorithms and vendor questionnaire flows.',
-            'Implemented federated SSO via OAuth to streamline enterprise onboarding.',
-            'Partnered with product to validate compliance workflows with healthcare customers.',
+            'Enhanced automated scoring algorithms for vendor risk assessments across diverse questionnaire types.',
+            'Implemented Federated Single Sign-On (SSO) via OAuth, streamlining secure access for enterprise clients.',
+            'Championed code quality through daily stand-ups and strict code review standards.',
         ],
-        tags: ['React', 'TypeScript', 'Ruby on Rails', 'PostgreSQL', 'OAuth'],
+        tags: ['React', 'TypeScript', 'Ruby on Rails', 'OAuth'],
     },
 ];
 
 const toolbox = {
-    'Frontend & UX': ['React', 'TypeScript', 'Redux', 'Vue', 'Vuex', 'Angular', 'Jest', 'Enzyme'],
-    'Backend & Services': ['Node.js', 'Express', 'Ruby on Rails', 'MoleculerJS', 'PostgreSQL', 'MongoDB', 'SQL'],
-    'DevOps & Delivery': ['AWS', 'Docker', 'CI/CD', 'Jest', 'RSpec'],
+    'Languages': ['TypeScript', 'JavaScript', 'Ruby', 'Python', 'SQL', 'HTML5', 'SCSS'],
+    'Front-End': ['React', 'Redux', 'Vue.js', 'Vuex', 'Angular', 'Mantine', 'Tailwind', 'Google Maps API'],
+    'Back-End': ['Node.js', 'Express', 'FastAPI', 'Ruby on Rails', 'MoleculerJS', 'PostgreSQL', 'MongoDB'],
+    'AI / ML': ['LLM Integration', 'RAG', 'Vector Databases', 'Embeddings', 'Multi-Agent Workflows', 'Conversational UX'],
+    'DevOps & Tools': ['AWS', 'Docker', 'Git', 'CI/CD', 'Jest', 'Enzyme', 'RSpec'],
 };
+
+const resumeHref = window.location.origin + '/matthew-bowler-resume.pdf';
 
 function Home() {
     return (
-        <Container size="xl" py="xl" className="page">
-            <Stack spacing="xl">
-                <Card radius="xl" padding="xl" className="hero">
-                    <Group position="apart" align="flex-start">
-                        <Stack spacing="sm" style={{ maxWidth: '900px' }}>
-                            <Title order={1}>Matthew Bowler</Title>
-                            <Text size="lg" c="dimmed">
-                                7+ years shipping high-performance web apps, modernizing legacy front-ends, and building complex geospatial tools with React, TypeScript, and Google Maps (vector tiles).
-                            </Text>
-                            <Group spacing="sm" mt="sm">
-                                <Button
-                                    size="md"
-                                    component="a"
-                                    href={window.location.origin + '/matthew-bowler-resume.pdf'}
-                                    target="_blank"
-                                    rightIcon={<IconArrowUpRight size={18} />}
-                                >
-                                    Download Resume
-                                </Button>
-                                <Button
-                                    size="md"
-                                    variant="outline"
-                                    component="a"
-                                    href="mailto:mattrbowler@gmail.com"
-                                    rightIcon={<IconMail size={18} />}
-                                >
-                                    Say hello
-                                </Button>
-                            </Group>
-                            <Group spacing="md" mt="md">
-                                {metrics.map((metric) => (
-                                    <Card key={metric.label} radius="md" padding="md" className="metric-card">
-                                        <Text fw={700} size="lg">{metric.label}</Text>
-                                        <Text size="sm" c="dimmed">{metric.detail}</Text>
-                                    </Card>
-                                ))}
-                            </Group>
-                        </Stack>
-                        <Card radius="md" padding="md" className="callout-card">
-                            <Text fw={600} size="sm" c="cyan">What I'm focused on</Text>
-                            <List
-                                mt="xs"
-                                spacing="xs"
-                                icon={hyphenBullet}
-                            >
-                                <List.Item>Geospatial editing performance for telecom planning teams.</List.Item>
-                                <List.Item>React architectures that de-risk migrations and lower tech debt.</List.Item>
-                                <List.Item>Data-heavy UX that stays fast, legible, and collaborative.</List.Item>
-                            </List>
-                        </Card>
-                    </Group>
-                </Card>
+        <div className="page">
+            <div className="announcement">
+                <span className="announcement-dot" />
+                <p className="announcement-text">
+                    <strong>Personal news:</strong> Jayde and I are expecting our first baby. Joining the Bowler crew soon.
+                </p>
+            </div>
 
-                <div>
-                    <Group position="apart" align="center" mb="md">
-                        <Title order={2}>Where I add the most value</Title>
-                        <Badge variant="light" size="sm">Mantine-first UI</Badge>
-                    </Group>
-                    <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-                        {focusAreas.map((area) => (
-                            <Card key={area.title} radius="md" padding="lg" className="focus-card">
-                                <Group spacing="sm">
-                                    <area.icon size={22} />
-                                    <Title order={4}>{area.title}</Title>
-                                </Group>
-                                <Text mt="sm" c="dimmed">{area.description}</Text>
-                            </Card>
-                        ))}
-                    </SimpleGrid>
+            <section className="section hero">
+                <h1>Matthew Bowler</h1>
+                <p className="hero-subtitle">
+                    Senior Full-Stack Engineer with 7+ years building high-performance web apps.
+                    Currently focused on AI engineering: integrating LLMs, vector search, and
+                    embeddings into production developer tooling, and designing the
+                    conversational interfaces around them.
+                </p>
+                <div className="hero-actions">
+                    <Button
+                        component="a"
+                        href={resumeHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        leftIcon={<IconDownload size={16} />}
+                    >
+                        Download résumé
+                    </Button>
+                    <Button
+                        variant="default"
+                        component="a"
+                        href="mailto:mattrbowler@gmail.com"
+                        leftIcon={<IconMail size={16} />}
+                    >
+                        Email me
+                    </Button>
                 </div>
-
-                <Card radius="lg" padding="xl" className="section-card">
-                    <Title order={2} mb="sm">Recent Work</Title>
-                    <Text c="dimmed" mb="lg">Enterprise-grade platforms, geospatial visualization, and modernization stories.</Text>
-                    <Stack spacing="lg">
-                        {engagements.map((engagement) => (
-                            <Card key={engagement.company} radius="md" padding="lg" className="engagement-card">
-                                <Group position="apart" align="flex-start" mb="xs">
-                                    <div>
-                                        <Title order={4}>{engagement.company}</Title>
-                                        <Text size="sm" c="dimmed">{engagement.role}</Text>
-                                    </div>
-                                    <Badge variant="outline" color="gray">{engagement.timeframe}</Badge>
-                                </Group>
-                                <Text mb="sm">{engagement.summary}</Text>
-                                <List
-                                    spacing={6}
-                                    icon={hyphenBullet}
-                                >
-                                    {engagement.highlights.map((item) => <List.Item key={item}>{item}</List.Item>)}
-                                </List>
-                                <Group spacing="xs" mt="md">
-                                    {engagement.tags.map((tag) => (
-                                        <Badge key={tag} size="sm" color="cyan" variant="light">{tag}</Badge>
-                                    ))}
-                                </Group>
-                            </Card>
-                        ))}
-                    </Stack>
-                </Card>
-
-                <Card radius="lg" padding="xl" className="section-card">
-                    <Group position="apart" mb="md">
-                        <Title order={2}>Toolbox</Title>
-                        <Badge variant="gradient" size="sm">React - TypeScript - Geospatial</Badge>
-                    </Group>
-                    <SimpleGrid cols={3} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-                        {Object.entries(toolbox).map(([category, skills]) => (
-                            <Card key={category} radius="md" padding="lg" className="tool-card">
-                                <Title order={4}>{category}</Title>
-                                <Divider my="sm" />
-                                <Group spacing="xs">
-                                    {skills.map((skill) => (
-                                        <Badge key={skill} variant="light" color="gray">{skill}</Badge>
-                                    ))}
-                                </Group>
-                            </Card>
-                        ))}
-                    </SimpleGrid>
-                </Card>
-
-                <Card radius="lg" padding="xl" className="section-card">
-                    <Group position="apart" align="flex-start">
-                        <div>
-                            <Title order={2}>Let's build something</Title>
-                            <Text c="dimmed" mt="xs">
-                                Remote-first from Savannah, GA. I partner with product, data, and engineering teams to ship high-confidence features and healthier codebases.
-                            </Text>
-                            <Group spacing="sm" mt="md">
-                                <Button component="a" href="mailto:mattrbowler@gmail.com" leftIcon={<IconMail size={18} />}>Email Matthew</Button>
-                                <Button
-                                    variant="subtle"
-                                    component="a"
-                                    href="https://www.linkedin.com/in/matthew-bowler-emb/"
-                                    target="_blank"
-                                    rightIcon={<IconBrandLinkedin size={18} />}
-                                >
-                                    LinkedIn
-                                </Button>
-                                <Button
-                                    variant="subtle"
-                                    component="a"
-                                    href="https://github.com/EmBeaux"
-                                    target="_blank"
-                                    rightIcon={<IconBrandGithub size={18} />}
-                                >
-                                    GitHub
-                                </Button>
-                            </Group>
+                <div className="metrics-grid">
+                    {metrics.map((m) => (
+                        <div key={m.label} className="metric">
+                            <div className="metric-label">{m.label}</div>
+                            <p className="metric-detail">{m.detail}</p>
                         </div>
-                        <Card radius="md" padding="md" className="contact-card">
-                            <Title order={5} c="cyan">Contact details</Title>
-                            <List spacing="xs" mt="xs" size="sm" c="dimmed" icon={hyphenBullet}>
-                                <List.Item>mattrbowler@gmail.com</List.Item>
-                                <List.Item>830-388-6184</List.Item>
-                                <List.Item>Savannah, Georgia (remote)</List.Item>
-                                <List.Item>
-                                    <Anchor href={window.location.origin + '/matthew-bowler-resume.pdf'} target="_blank" rel="noreferrer">Resume (PDF)</Anchor>
-                                </List.Item>
-                            </List>
-                        </Card>
-                    </Group>
-                    <Divider my="lg" />
+                    ))}
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="section-label">Focus areas</div>
+                <div className="focus-grid">
+                    {focusAreas.map((area) => (
+                        <div key={area.title} className="focus-card">
+                            <div className="focus-icon">
+                                <area.icon size={18} />
+                            </div>
+                            <h3>{area.title}</h3>
+                            <p>{area.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="section-label">Experience</div>
+                <div>
+                    {engagements.map((engagement, idx) => (
+                        <div key={`${engagement.company}-${idx}`} className="engagement">
+                            <div className="engagement-header">
+                                <div>
+                                    <p className="engagement-company">{engagement.company}</p>
+                                    <p className="engagement-role">{engagement.role}</p>
+                                </div>
+                                <span className="engagement-timeframe">{engagement.timeframe}</span>
+                            </div>
+                            <p className="engagement-summary">{engagement.summary}</p>
+                            <ul className="engagement-bullets">
+                                {engagement.highlights.map((h) => (
+                                    <li key={h}>{h}</li>
+                                ))}
+                            </ul>
+                            <div className="tag-row">
+                                {engagement.tags.map((tag) => (
+                                    <span key={tag} className="tag">{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="section-label">Toolbox</div>
+                <div className="toolbox-grid">
+                    {Object.entries(toolbox).map(([category, skills]) => (
+                        <div key={category} className="tool-group">
+                            <h4>{category}</h4>
+                            <div className="tag-row">
+                                {skills.map((skill) => (
+                                    <span key={skill} className="tag">{skill}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="section-label">Contact</div>
+                <div className="contact-section">
+                    <div>
+                        <h2 style={{ fontSize: 24, margin: '0 0 12px', letterSpacing: '-0.01em' }}>
+                            Let&apos;s build something.
+                        </h2>
+                        <p style={{ color: 'var(--text-dim)', fontSize: 15, margin: '0 0 20px', lineHeight: 1.6, maxWidth: 520 }}>
+                            Remote-first from Savannah, GA. I partner with product, data, and
+                            engineering teams to ship high-confidence features and healthier
+                            codebases.
+                        </p>
+                        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                            <Button
+                                component="a"
+                                href="mailto:mattrbowler@gmail.com"
+                                leftIcon={<IconMail size={16} />}
+                            >
+                                Email
+                            </Button>
+                            <Button
+                                variant="default"
+                                component="a"
+                                href="https://www.linkedin.com/in/matthew-bowler-emb/"
+                                target="_blank"
+                                rel="noreferrer"
+                                rightIcon={<IconArrowUpRight size={14} />}
+                                leftIcon={<IconBrandLinkedin size={16} />}
+                            >
+                                LinkedIn
+                            </Button>
+                            <Button
+                                variant="default"
+                                component="a"
+                                href="https://github.com/EmBeaux"
+                                target="_blank"
+                                rel="noreferrer"
+                                rightIcon={<IconArrowUpRight size={14} />}
+                                leftIcon={<IconBrandGithub size={16} />}
+                            >
+                                GitHub
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="contact-details">
+                        <h4>Details</h4>
+                        <div className="contact-row">
+                            <span>Email</span>
+                            <a href="mailto:mattrbowler@gmail.com">mattrbowler@gmail.com</a>
+                        </div>
+                        <div className="contact-row">
+                            <span>Phone</span>
+                            <span>830-388-6184</span>
+                        </div>
+                        <div className="contact-row">
+                            <span>Location</span>
+                            <span>Savannah, GA</span>
+                        </div>
+                        <div className="contact-row">
+                            <span>Résumé</span>
+                            <a href={resumeHref} target="_blank" rel="noreferrer">PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div style={{ marginTop: 32 }}>
                     <ContactMeForm />
-                </Card>
-            </Stack>
-        </Container>
-    )
+                </div>
+            </section>
+        </div>
+    );
 }
 
-export default Home
+export default Home;

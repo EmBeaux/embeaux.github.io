@@ -1,21 +1,19 @@
 import _React from 'react';
-import { Image } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import { Image } from '@mantine/core';
+import { useHover } from '@mantine/hooks';
 
 interface MantineStyles {
-    [key: string]: { [key: string]: string }
+    [key: string]: { [key: string]: string };
 }
 
 interface HoverImageProps {
-    src: string,
-    width: string,
-    radius?: string,
-    styles?: MantineStyles,
-    onClick: () => void,
-    hoverSrc?: string
+    src: string;
+    width: string;
+    radius?: string;
+    styles?: MantineStyles;
+    onClick: () => void;
+    hoverSrc?: string;
 }
-
-
 
 function HoverImage(props: HoverImageProps) {
     const { hovered, ref } = useHover();
@@ -31,14 +29,14 @@ function HoverImage(props: HoverImageProps) {
                 ...styles,
                 root: {
                     ...styles.root,
-                    transition: 'margin 0.4s ease',
-                    marginTop: hovered ? '-10px' : '0',
-                    cursor: 'pointer'
-                }
+                    transition: 'opacity 0.15s ease',
+                    opacity: hovered ? 0.85 : 1,
+                    cursor: 'pointer',
+                },
             }}
             onClick={props.onClick}
         />
-    )
+    );
 }
 
 export default HoverImage;
